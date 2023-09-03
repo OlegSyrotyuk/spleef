@@ -1,0 +1,6 @@
+name: Spleef
+version: 1.0.0
+author: olegsyrotyuk
+main: dev.olegsyrotyuk.spleef.Spleef
+depend:
+  - SlimeWorldManager

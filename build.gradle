@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'dev.olegsyrotyuk'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url 'https://repo.glaremasters.me/repository/concuncan/' }
+}
+
+dependencies {
+    implementation fileTree(".libs")
+    implementation 'org.mongodb:mongo-java-driver:3.12.11'
+    compileOnly 'com.destroystokyo.paper:paper-api:1.12.2-R0.1-SNAPSHOT'
+    compileOnly 'com.grinderwolf:slimeworldmanager-plugin:2.2.1'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+
+jar {
+    from configurations.runtimeClasspath.collect(project.&zipTree)
+    duplicatesStrategy DuplicatesStrategy.EXCLUDE
+}
+
+tasks.withType(JavaCompile)*.options*.encoding = "UTF-8"
