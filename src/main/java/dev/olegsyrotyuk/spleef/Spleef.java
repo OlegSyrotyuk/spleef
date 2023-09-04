@@ -16,7 +16,6 @@ import lombok.Getter;
 import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -79,8 +78,8 @@ public class Spleef extends JavaPlugin {
                 DEFAULT_WORLD_DATA.toPropertyMap()
         ));
         registerListeners(
-                new PlayerListener(),
-                new GameListener()
+                new PlayerListener(this),
+                new GameListener(this)
         );
         spawnNpc();
     }

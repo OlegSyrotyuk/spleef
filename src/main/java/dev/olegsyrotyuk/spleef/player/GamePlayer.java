@@ -27,14 +27,16 @@ public class GamePlayer {
     private boolean alive;
 
     public void changeCoins(int coins) {
-        if (this.coins + coins < 0)
+        if (this.coins + coins < 0) {
             return;
+        }
         this.coins += coins;
     }
 
     public void changeWins(int wins) {
-        if (this.wins + wins < 0)
+        if (this.wins + wins < 0) {
             return;
+        }
         this.wins += wins;
     }
 

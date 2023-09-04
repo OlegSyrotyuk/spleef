@@ -3,6 +3,7 @@ package dev.olegsyrotyuk.spleef.game.listener;
 import dev.olegsyrotyuk.spleef.Spleef;
 import dev.olegsyrotyuk.spleef.game.arena.ArenaState;
 import dev.olegsyrotyuk.spleef.player.GamePlayer;
+import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -18,9 +19,10 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
+@RequiredArgsConstructor
 public class GameListener implements Listener {
 
-    private final Spleef spleef = Spleef.getInstance();
+    private final Spleef spleef;
 
     @EventHandler
     public void on(BlockBreakEvent event) {
