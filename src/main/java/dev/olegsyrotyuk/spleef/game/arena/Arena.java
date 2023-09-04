@@ -4,6 +4,7 @@ import com.destroystokyo.paper.Title;
 import dev.olegsyrotyuk.spleef.Spleef;
 import dev.olegsyrotyuk.spleef.player.GamePlayer;
 import dev.olegsyrotyuk.spleef.util.ChatUtil;
+import dev.olegsyrotyuk.spleef.util.LocationUtil;
 import dev.olegsyrotyuk.spleef.util.Timer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,10 +45,10 @@ public class Arena {
         firstPlayer.setAlive(true);
         secondPlayer.setAlive(true);
 
-        firstHandle.teleport(new Location(world, -2, 70, 8));
+        firstHandle.teleport(LocationUtil.strToLoc(Spleef.getInstance().getConfig().getString("arena.firstSpawnLocation")));
         preparePlayer(firstHandle);
 
-        secondHandle.teleport(new Location(world, -27, 70, 8));
+        secondHandle.teleport(LocationUtil.strToLoc(Spleef.getInstance().getConfig().getString("arena.secondSpawnLocation")));
         preparePlayer(secondHandle);
 
         bossBar.addPlayer(firstHandle);
@@ -57,7 +58,7 @@ public class Arena {
                 return;
             }
             bossBar.setTitle(ChatUtil.colorize("&a&lДо конца игры: &e%s %s", endGameTimer.getTime(),
-                    ChatUtil.transformByCount(endGameTimer.getTime(), "секунду", "секунды", "секунд")));
+                    ChatUtil.transformByCount(endGameTimer.getTime(), "секунда", "секунды", "секунд")));
             checkVictory();
         });
         endGameTimer.setOnFinish(this::handleDraw);
@@ -69,7 +70,7 @@ public class Arena {
                     .title(ChatUtil.colorize("&aИгра начнется через..."))
                     .subtitle(ChatUtil.colorize("&c%s &a%s",
                             timer.getTime(),
-                            ChatUtil.transformByCount(timer.getTime(), "секунду", "секунды", "секунд")))
+                            ChatUtil.transformByCount(timer.getTime(), "секунда", "секунды", "секунд")))
                     .build();
             firstHandle.sendTitle(title);
             secondHandle.sendTitle(title);

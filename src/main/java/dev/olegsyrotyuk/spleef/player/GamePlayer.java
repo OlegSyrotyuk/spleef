@@ -1,6 +1,7 @@
 package dev.olegsyrotyuk.spleef.player;
 
 import dev.olegsyrotyuk.spleef.game.arena.Arena;
+import dev.olegsyrotyuk.spleef.util.ChatUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,6 +48,10 @@ public class GamePlayer {
             handle.getInventory().clear();
             getHandle().teleport(Bukkit.getWorld("lobby").getSpawnLocation());
         }
+    }
+
+    public void sendMessage(String message, Object... args) {
+        getHandle().sendMessage(ChatUtil.prefixed("spleef", message, args));
     }
 
 }

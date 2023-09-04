@@ -1,8 +1,7 @@
-package dev.olegsyrotyuk.spleef.handler;
+package dev.olegsyrotyuk.spleef.listener;
 
 import dev.olegsyrotyuk.spleef.Spleef;
 import dev.olegsyrotyuk.spleef.util.ChatUtil;
-import lombok.RequiredArgsConstructor;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,8 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-@RequiredArgsConstructor
-public class PlayerHandler implements Listener {
+public class PlayerListener implements Listener {
 
     private final Spleef spleef = Spleef.getInstance();
 
